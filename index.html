@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>gameofbabu</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe2e2, #ffdcdc);
+      color: #333;
+      font-family: 'Helvetica', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    #click-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      background-color: #ff8fab;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #message {
+      display: none;
+      text-align: left;
+      white-space: pre-wrap;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>I made something for you...</h1>
+    <button id="click-btn">Click me 💜</button>
+    <div id="message">
+sooo smart that u could complete that very difficult test
+
+thank u for being u
+thank u for ur time, efforts, messages, and for always being near, even if far away
+
+i can’t wait for the day we celebrate ur birthday together — not on the phone, but in real life.
+
+u are my kitteno4ka <3
+
+Happy Birthday!
+
+From ur hamster 🐹
+    </div>
+  </div>
+  <script>
+    document.getElementById('click-btn').addEventListener('click', function() {
+      document.getElementById('message').style.display = 'block';
+      this.scrollIntoView({ behavior: 'smooth' });
+      this.disabled = true;
+    });
+  </script>
+</body>
+</html>
