@@ -2,28 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>gameofbabu</title>
   <style>
     body {
+      margin: 0;
       background: linear-gradient(135deg, #ffe2f2, #ffdce8);
       color: #333;
       font-family: 'Helvetica', sans-serif;
       text-align: center;
-      padding: 50px;
-      overflow: hidden;
+      padding: 20px;
+      overflow-x: hidden;
     }
+
     .container {
       max-width: 600px;
       margin: 0 auto;
       background: #fff;
-      padding: 30px;
+      padding: 30px 20px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       position: relative;
       z-index: 1;
     }
+
     #click-btn {
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-size: 18px;
       border: none;
       border-radius: 6px;
@@ -31,38 +35,47 @@
       color: #fff;
       cursor: pointer;
       margin-bottom: 20px;
+      max-width: 100%;
     }
+
     #message {
       display: none;
       text-align: left;
       white-space: pre-wrap;
       margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.5;
     }
+
     .heart {
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background-color: #ff5e9c;
       transform: rotate(45deg);
       animation: fall 8s linear infinite;
       opacity: 0.7;
     }
+
     .heart::before, .heart::after {
       content: "";
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background-color: #ff5e9c;
       border-radius: 50%;
     }
+
     .heart::before {
-      top: -8px;
+      top: -7px;
       left: 0;
     }
+
     .heart::after {
-      left: -8px;
+      left: -7px;
       top: 0;
     }
+
     @keyframes fall {
       0% {
         top: -20px;
@@ -71,6 +84,21 @@
       100% {
         top: 100%;
         opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #message {
+        font-size: 15px;
+      }
+
+      #click-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      .container {
+        padding: 20px 16px;
       }
     }
   </style>
