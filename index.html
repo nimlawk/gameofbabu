@@ -5,11 +5,12 @@
   <title>gameofbabu</title>
   <style>
     body {
-      background: linear-gradient(135deg, #ffe2e2, #ffdcdc);
+      background: linear-gradient(135deg, #ffe2f2, #ffdce8);
       color: #333;
       font-family: 'Helvetica', sans-serif;
       text-align: center;
       padding: 50px;
+      overflow: hidden;
     }
     .container {
       max-width: 600px;
@@ -18,6 +19,8 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
     }
     h1 {
       margin-bottom: 10px;
@@ -38,16 +41,51 @@
       white-space: pre-wrap;
       margin-top: 20px;
     }
+    .heart {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: #ff5e9c;
+      transform: rotate(45deg);
+      animation: fall 8s linear infinite;
+      opacity: 0.7;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: #ff5e9c;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -8px;
+      left: 0;
+    }
+    .heart::after {
+      left: -8px;
+      top: 0;
+    }
+    @keyframes fall {
+      0% {
+        top: -20px;
+        opacity: 0;
+      }
+      100% {
+        top: 100%;
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>I made something for you...</h1>
-    <button id="click-btn">Click me 💜</button>
+    <h1>kinda was game of ur babu</h1>
+    <button id="click-btn">click here!!</button>
     <div id="message">
 sooo smart that u could complete that very difficult test
 
-thank u for being u
+thank u for being u  
 thank u for ur time, efforts, messages, and for always being near, even if far away
 
 i can’t wait for the day we celebrate ur birthday together — not on the phone, but in real life.
@@ -59,10 +97,19 @@ Happy Birthday!
 From ur hamster 🐹
     </div>
   </div>
+
+  <!-- Falling hearts -->
   <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+    }
+
     document.getElementById('click-btn').addEventListener('click', function() {
       document.getElementById('message').style.display = 'block';
-      this.scrollIntoView({ behavior: 'smooth' });
       this.disabled = true;
     });
   </script>
